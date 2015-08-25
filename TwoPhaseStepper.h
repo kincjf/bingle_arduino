@@ -16,6 +16,7 @@ protected:
 
 
 public:
+	TwoPhaseStepperClass();
 	TwoPhaseStepperClass(int A, int B, int C, int D);
 	void moveStep(int step);
 };

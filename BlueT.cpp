@@ -1,7 +1,3 @@
-// 
-// 
-// 
-
 #include "BlueT.h"
 
 BlueTClass::BlueTClass()

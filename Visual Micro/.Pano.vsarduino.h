@@ -85,11 +85,8 @@ extern "C" void __cxa_pure_virtual() {;}
 #define portInputRegister(P)
 #define portModeRegister(P)
 #include <Pano.ino>
-#include <Blue.cpp>
-#include <Blue.h>
 #include <BlueT.cpp>
 #include <BlueT.h>
-#include <CBlue.cpp>
 #include <CBlue.h>
 #include <TwoPhaseStepper.cpp>
 #include <TwoPhaseStepper.h>

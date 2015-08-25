@@ -7,6 +7,10 @@
 
 TwoPhaseStepperClass TwoPhaseStepper;
 
+TwoPhaseStepperClass::TwoPhaseStepperClass()
+{
+}
+
 TwoPhaseStepperClass::TwoPhaseStepperClass(int pinA, int pinB, int pinC, int pinD)
 {
 	A = pinA;
