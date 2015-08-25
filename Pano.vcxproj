@@ -127,20 +127,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Blue.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
     <ClInclude Include="BlueT.h" />
-    <ClInclude Include="CBlue.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
     <ClInclude Include="TwoPhaseStepper.h" />
     <ClInclude Include="Visual Micro\.Pano.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Blue.cpp" />
     <ClCompile Include="BlueT.cpp" />
-    <ClCompile Include="CBlue.cpp" />
     <ClCompile Include="TwoPhaseStepper.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -24,24 +24,12 @@
     <ClInclude Include="BlueT.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Blue.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="CBlue.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="TwoPhaseStepper.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlueT.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Blue.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CBlue.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="TwoPhaseStepper.cpp">

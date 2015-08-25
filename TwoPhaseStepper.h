@@ -4,18 +4,20 @@
 #define _TWOPHASESTEPPER_h
 
 #if defined(ARDUINO) && ARDUINO >= 100
-	#include "arduino.h"
+#include "arduino.h"
 #else
-	#include "WProgram.h"
+#include "WProgram.h"
 #endif
 
 class TwoPhaseStepperClass
 {
- protected:
+protected:
+	int A, B, C, D;
 
 
- public:
-	void init();
+public:
+	TwoPhaseStepperClass(int A, int B, int C, int D);
+	void moveStep(int step);
 };
 
 extern TwoPhaseStepperClass TwoPhaseStepper;
