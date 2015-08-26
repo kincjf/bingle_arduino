@@ -87,7 +87,6 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <Pano.ino>
 #include <BlueT.cpp>
 #include <BlueT.h>
-#include <CBlue.h>
 #include <TwoPhaseStepper.cpp>
 #include <TwoPhaseStepper.h>
 #endif
