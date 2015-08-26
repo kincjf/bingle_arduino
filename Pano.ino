@@ -1,4 +1,6 @@
-
+/// @file Pano.ino
+/// @data 2015-08-26
+/// @author Hong
 
 
 #include "TwoPhaseStepper.h"
@@ -18,12 +20,12 @@ char cmd;
 
 #define horArrSize 6
 uint8_t horArr[6] = {128, 128,48,85,85,43};
-uint8_t verArr[6][6] = { { 1,90 },
+uint8_t verArr[6][6] = {	{ 5,30,60,90,120,150 } ,
+							{ 1,90 },
 							{ 2,60,120 },
 							{ 3,150,90,30 },
 							{ 2,60,120 },
-							{ 1,90 },
-							{ 5,30,60,90,120,150 } };
+							{ 1,90 } };
 void setup()
 {
 	verServo.attach(12);
@@ -32,40 +34,43 @@ void setup()
 
 
 void loop()
-{
+{                                                                                                                                   
 	cmd = BT.cmd();
 	delay(100);
 
 	if (cmd == 'S')
 	{
-		Serial.println("in");
+		//Serial.println("in");
 		for (int i = 0; i < 4; i++) {
 			for (int h = 0; h < horArrSize; h++) {
-
+				
 				if (i != 0 || h != 0) {
-					horStep.moveStep(horArr[h]);
-					Serial.print("movHor");
-					Serial.println("horArr[h]");
+					horStep.moveStep(horArr[h]+4);
+					//Serial.print("movHor");
+					//Serial.println(horArr[h]);
 				}
 				for (int v = 1; v <= verArr[h][0]; v++) {
 					
-					while (!(cmd == 'F' || cmd == 'S')) {
+					verServo.write(verArr[h][v]);
+
+					//Serial.print("ver");
+					//Serial.println(verArr[h][v]);
+					delay(350);
+					BT.sendCmd('C');
+					delay(10);
+
+					while (cmd != 'F') {
 						cmd = BT.cmd();
-						Serial.println(cmd);
+						//Serial.println(cmd);
+						delay(5);
 					}
 					cmd = NULL;
 
-					verServo.write(verArr[h][v]);
-
-					Serial.print("ver");
-					Serial.println(verArr[h][v]);
-					delay(100);
-					BT.sendCmd('C');
 				}
 
 			}
 		}
-
+		//Serial.println("out");
 		BT.sendCmd('E');
 
 	}

@@ -32,7 +32,7 @@ void TwoPhaseStepperClass::moveStep(int step)
 		digitalWrite(B, LOW);
 		digitalWrite(C, HIGH);
 		digitalWrite(D, HIGH);
-		delay(10);
+		delay(5);
 		step--;
 		if (step == 0)
 			break;
@@ -41,7 +41,7 @@ void TwoPhaseStepperClass::moveStep(int step)
 		digitalWrite(C, LOW);
 		digitalWrite(D, HIGH);
 
-		delay(10);
+		delay(5);
 		step--;
 		if (step == 0)
 			break;
@@ -50,7 +50,7 @@ void TwoPhaseStepperClass::moveStep(int step)
 		digitalWrite(C, LOW);
 		digitalWrite(D, LOW);
 
-		delay(10);
+		delay(5);
 		step--;
 		if (step == 0)
 			break;
@@ -59,7 +59,7 @@ void TwoPhaseStepperClass::moveStep(int step)
 		digitalWrite(C, HIGH);
 		digitalWrite(D, LOW);
 
-		delay(10);
+		delay(5);
 		step--;
 	}
 }

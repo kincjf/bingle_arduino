@@ -1,4 +1,6 @@
-// BlueT.h
+/// @file BlueT.h
+/// @data 2015-08-26
+/// @author Hong
 
 #ifndef _BLUET_h
 #define _BLUET_h
@@ -9,15 +11,18 @@
 	#include "WProgram.h"
 #endif
 
+
+/// @brief Bluetooth 통신을 위한 Class
+// ------------------------------------
 class BlueTClass
 {
  protected:
-	 char cmdTmp;
+	 char cmdTmp; /// 명령의 임시저장.
 
  public:
-	BlueTClass();
-	char cmd();
-	void sendCmd(char cmd);
+	BlueTClass(); /// 블루투스 생성자
+	char cmd(); /// 블루투스로부터 캐리지 리턴을 포함한 명령을 받아온다.
+	void sendCmd(char cmd); /// 캐리지 리턴을 포함한 명령을 보낸다.
 
 };
 
