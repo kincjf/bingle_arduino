@@ -1,7 +1,5 @@
 PANO v1.0
 
-WHAT IS THIS?
-
 
 BlueTClass : carriage return을 포함한 패킷을 주고 받는데 사용된다.
 ├-char cmd() : carriage returnd을 포함한 패킷이 오면 그 앞의 값을 리턴.
@@ -12,21 +10,32 @@ TwoPhaseStepperClass : 가로 움직임, 우리가 사용하는 2상 스텝모터를 동작하게함.
 └-void moveStep(int step); : 움직이고자 하는 step 만큼 입력 (64*32step = 360도)
 
 
-ON WHAT HARDWARE DOES IT RUN?
+하드웨어 스펙
+
+세로 모터 mg996r
+가로 모터 http://motorbank.kr/shop/goods/goods_view.php?goodsno=6703&category=006003
+MCU 아두이노 나노
+블루투스 모듈
+7.4V 리튬 폴리머 배터리
 
 
+구성시 주의사항
 
-DOCUMENTATION:
-   여기에는 이 프로젝트 문서들이 어디에 있는지 무엇을 설명하는지 쓰는 것 같습니다 :-)
+- 7.4v 사용시 세로 모터인 mg996r의 정격 전압보다 높아 다이오드 2개를 연결해서 전압을 강하시켜 사용해야함.
+- 가로모터 PIN 6, 7, 8, 9
+- 블루투스 PIN 0, 1 꼭 RX TX 하드웨어 핀을 사용해야 함.
+- 세로모터 PIN 12
 
-INSTALLING the source:
-   여기에는 소스코드를 설치하는 방법에 대해서 씁니다. 
 
-SOFTWARE REQUIREMENTS:
-   여기에는 소프트웨어 종속성에 대해서 씁니다. 빌드하는데 필요한 라이브러리라던지..
+각도 설정법
 
-CONFIGURING:
-   여기에는 configure하는 방법에 대하여 씁니다. autotool을 사용해야 한다던지 cmake를 사용한다던지..
+uint8_t horArr[6] = { 86,86,86,86,86,86 }; <--가로 각도 step (64*32step = 360도)
+uint8_t verArr[6][7] = { { 6,55,73,90,113,137,155 }, <--세로 각도
+{ 6,55,73,90,113,137,155 },
+{ 6,55,73,90,113,137,155 },
+{ 6,55,73,90,113,137,155 },
+{ 6,55,73,90,113,137,155 },
+{ 6,55,73,90,113,137,155 } };
 
-COMPILING:
-   여기에는 컴파일 하는 방법을 씁니다. make, make clean, 혹은 다른 make *** 명령에 대해서 쓰면 될 것 같습니다.
+세로 각도 변수의 각 행의 첫번째 열은 행의 size를 나타내고 뒤로 나오는 숫자가 각도임.
+가로 각도가 한번 변경되고 그 다음 가로 각도 index를 행으로 하는 verArr[index][]의 각도로 세로각도가 변경됨.
